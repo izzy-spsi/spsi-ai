@@ -471,6 +471,39 @@ footer{
 
 
 
+
+/* AI ADVISOR WIDGET */
+.advisor-container{max-width:640px;margin:0 auto;background:#0D0D18;border:1px solid rgba(255,94,26,0.2);border-radius:16px;overflow:hidden;box-shadow:0 0 60px rgba(255,94,26,0.06);}
+.advisor-header{display:flex;align-items:center;gap:14px;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,0.05);background:#13131F;}
+.advisor-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#FF5E1A,#9B6BFF);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.advisor-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:#F0EDF8;}
+.advisor-status{font-size:11px;color:#6B6B8A;display:flex;align-items:center;gap:6px;margin-top:2px;}
+.advisor-dot{width:6px;height:6px;border-radius:50%;background:#00FF88;display:inline-block;box-shadow:0 0 6px #00FF88;}
+.advisor-badge{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#9B6BFF;background:rgba(155,107,255,0.08);border:1px solid rgba(155,107,255,0.2);padding:4px 10px;border-radius:4px;}
+.advisor-messages{padding:24px;min-height:200px;max-height:360px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;scrollbar-width:thin;scrollbar-color:rgba(255,94,26,0.2) transparent;}
+.adv-msg{display:flex;gap:10px;max-width:85%;}
+.adv-msg.ai{align-self:flex-start;}
+.adv-msg.user{align-self:flex-end;flex-direction:row-reverse;}
+.adv-bubble{padding:12px 16px;border-radius:12px;font-size:14px;line-height:1.6;}
+.adv-msg.ai .adv-bubble{background:#1A1A2E;border:1px solid rgba(155,107,255,0.12);color:#F0EDF8;border-bottom-left-radius:4px;}
+.adv-msg.user .adv-bubble{background:rgba(255,94,26,0.12);border:1px solid rgba(255,94,26,0.2);color:#F0EDF8;border-bottom-right-radius:4px;}
+.adv-typing{display:flex;gap:4px;align-items:center;padding:14px 16px;background:#1A1A2E;border:1px solid rgba(155,107,255,0.12);border-radius:12px;border-bottom-left-radius:4px;width:fit-content;}
+.adv-typing span{width:6px;height:6px;border-radius:50%;background:#9B6BFF;animation:typing 1.2s infinite;}
+.adv-typing span:nth-child(2){animation-delay:0.2s;}
+.adv-typing span:nth-child(3){animation-delay:0.4s;}
+@keyframes typing{0%,60%,100%{opacity:0.2;transform:scale(0.8);}30%{opacity:1;transform:scale(1);}}
+.advisor-input-wrap{display:flex;gap:0;border-top:1px solid rgba(255,255,255,0.05);}
+.advisor-input{flex:1;background:#13131F;border:none;padding:16px 20px;font-size:14px;color:#F0EDF8;font-family:'Space Grotesk',sans-serif;outline:none;}
+.advisor-input::placeholder{color:#4A4860;}
+.advisor-send{background:#FF5E1A;border:none;padding:16px 22px;font-size:18px;color:#fff;cursor:pointer;transition:background 0.2s;font-weight:700;}
+.advisor-send:hover{background:#FF7A40;}
+.advisor-result{padding:28px 24px;border-top:1px solid rgba(255,255,255,0.05);}
+.ar-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#6B6B8A;margin-bottom:10px;}
+.ar-tier{font-family:'Orbitron',sans-serif;font-weight:900;font-size:28px;margin-bottom:10px;}
+.ar-reason{font-size:13px;color:#7A788A;line-height:1.7;margin-bottom:20px;}
+.ar-pricing{background:#13131F;border:1px solid rgba(255,94,26,0.15);border-radius:8px;padding:16px 20px;margin-bottom:20px;}
+.ar-actions{display:flex;flex-direction:column;align-items:flex-start;}
+
 /* WAITLIST MODAL */
 .waitlist-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.92);z-index:300;align-items:center;justify-content:center;padding:20px;}
 .waitlist-overlay.open{display:flex;}
@@ -758,7 +791,7 @@ footer{
         <p class="air-body">Your A.I.R. is your personal Chief of Staff, Executive Assistant, Orchestrator, and General — all in one. It remembers everything, executes on your behalf, and never sleeps. You run the vision. Your Regent runs everything else.</p>
         <div class="air-stats">
           <div class="air-stat">
-            <div class="air-stat-val">24/7</div>
+            <div class="air-stat-val" style="letter-spacing:0;font-size:26px;">24&#8203;/&#8203;7</div>
             <div class="air-stat-lbl">Always On</div>
           </div>
           <div class="air-stat">
@@ -917,77 +950,45 @@ footer{
 <!-- FOOTER -->
 
 <!-- ═══════════════════════════════════════════════════════════
-     TIER RECOMMENDATION WIDGET
+     AI TIER ADVISOR
 ═══════════════════════════════════════════════════════════ -->
 <section class="section" id="find-tier" style="background:#07070F;padding:80px 24px;">
   <div class="section-header">
-    <div class="section-tag">FIND YOUR SUPERPOWER</div>
+    <div class="section-tag">A.I.R. ADVISOR</div>
     <h2 class="section-title">Not sure which tier is right?</h2>
-    <p class="section-sub">Answer 4 questions. We'll match you in 60 seconds.</p>
+    <p class="section-sub">Talk to our AI. Tell it what you're building — it'll recommend the right tier in under 2 minutes.</p>
   </div>
-  <div class="quiz-container">
-    <div class="quiz-progress"><div class="quiz-bar" id="quizBar" style="width:0%"></div></div>
-    <div class="quiz-steps">
-
-      <!-- Q1 -->
-      <div class="quiz-step active" id="q1">
-        <div class="quiz-q">Where are you right now?</div>
-        <div class="quiz-options">
-          <div class="quiz-opt" onclick="answer('q1','idea',this)"><span class="qo-icon">💡</span><span>I have an idea — haven't started yet</span></div>
-          <div class="quiz-opt" onclick="answer('q1','building',this)"><span class="qo-icon">🔨</span><span>I'm actively building something</span></div>
-          <div class="quiz-opt" onclick="answer('q1','inmarket',this)"><span class="qo-icon">🚀</span><span>I have a business and want to grow</span></div>
-          <div class="quiz-opt" onclick="answer('q1','corporate',this)"><span class="qo-icon">🏢</span><span>I'm part of a team or corporation</span></div>
-        </div>
+  <div class="advisor-container">
+    <div class="advisor-header">
+      <div class="advisor-avatar">⚡</div>
+      <div>
+        <div class="advisor-name">SPS Advisor</div>
+        <div class="advisor-status"><span class="advisor-dot"></span>Online now</div>
       </div>
-
-      <!-- Q2 -->
-      <div class="quiz-step" id="q2">
-        <div class="quiz-q">What's your primary goal?</div>
-        <div class="quiz-options">
-          <div class="quiz-opt" onclick="answer('q2','validate',this)"><span class="qo-icon">✅</span><span>Validate if my idea is worth pursuing</span></div>
-          <div class="quiz-opt" onclick="answer('q2','form',this)"><span class="qo-icon">🏛</span><span>Form my company and build the foundation</span></div>
-          <div class="quiz-opt" onclick="answer('q2','raise',this)"><span class="qo-icon">💰</span><span>Raise funding from investors</span></div>
-          <div class="quiz-opt" onclick="answer('q2','scale',this)"><span class="qo-icon">📈</span><span>Scale what I've already built</span></div>
-          <div class="quiz-opt" onclick="answer('q2','exit',this)"><span class="qo-icon">🚪</span><span>Prepare for an exit</span></div>
-        </div>
+      <div class="advisor-badge">Powered by A.I.R.</div>
+    </div>
+    <div class="advisor-messages" id="advisorMessages">
+      <div class="adv-msg ai">
+        <div class="adv-bubble">Hi! I'm your SPS Advisor. Tell me about what you're working on — or what you're thinking about building. There are no wrong answers.</div>
       </div>
-
-      <!-- Q3 -->
-      <div class="quiz-step" id="q3">
-        <div class="quiz-q">How would you describe yourself?</div>
-        <div class="quiz-options">
-          <div class="quiz-opt" onclick="answer('q3','creator',this)"><span class="qo-icon">🎨</span><span>Creator or influencer</span></div>
-          <div class="quiz-opt" onclick="answer('q3','firsttime',this)"><span class="qo-icon">🚀</span><span>First-time founder</span></div>
-          <div class="quiz-opt" onclick="answer('q3','serial',this)"><span class="qo-icon">⚡</span><span>Serial entrepreneur</span></div>
-          <div class="quiz-opt" onclick="answer('q3','team',this)"><span class="qo-icon">👥</span><span>Corporate or team innovator</span></div>
-          <div class="quiz-opt" onclick="answer('q3','student',this)"><span class="qo-icon">🎓</span><span>Student</span></div>
-        </div>
+    </div>
+    <div class="advisor-input-wrap" id="advisorInputWrap">
+      <input type="text" class="advisor-input" id="advisorInput" placeholder="Tell me about your idea or business…" onkeydown="if(event.key==='Enter')sendAdvisor()">
+      <button class="advisor-send" onclick="sendAdvisor()">→</button>
+    </div>
+    <div class="advisor-result" id="advisorResult" style="display:none;">
+      <div class="ar-label">Based on our conversation…</div>
+      <div class="ar-tier" id="arTierName"></div>
+      <div class="ar-reason" id="arReason"></div>
+      <div class="ar-pricing" id="arPricing"></div>
+      <div class="ar-actions">
+        <a href="#" id="arWaitlistBtn" class="btn-primary" style="padding:14px 28px;font-size:13px;">🔒 Join the Waitlist →</a>
+        <a href="#" onclick="resetAdvisor();return false;" style="font-size:12px;color:var(--muted);margin-top:10px;display:block;">Start over</a>
       </div>
-
-      <!-- Q4 -->
-      <div class="quiz-step" id="q4">
-        <div class="quiz-q">What's your timeline?</div>
-        <div class="quiz-options">
-          <div class="quiz-opt" onclick="answer('q4','exploring',this)"><span class="qo-icon">🔍</span><span>Just exploring for now</span></div>
-          <div class="quiz-opt" onclick="answer('q4','soon',this)"><span class="qo-icon">⚡</span><span>Ready to move in the next 30 days</span></div>
-          <div class="quiz-opt" onclick="answer('q4','now',this)"><span class="qo-icon">🚀</span><span>Already in market — need help now</span></div>
-        </div>
-      </div>
-
-      <!-- RESULT -->
-      <div class="quiz-step" id="qresult">
-        <div class="quiz-result-label">Based on your answers...</div>
-        <div class="quiz-result-tier" id="resultTierName"></div>
-        <div class="quiz-result-reason" id="resultReason"></div>
-        <div class="quiz-result-card" id="resultCard"></div>
-        <div class="quiz-result-actions">
-          <a href="#" id="resultApplyBtn" class="btn-primary" style="padding:14px 32px;">🔒 Join the Waitlist →</a>
-          <a href="#" onclick="resetQuiz();return false;" style="font-size:12px;color:var(--muted);text-decoration:none;margin-top:8px;display:block;">← Retake quiz</a>
-        </div>
-      </div>
-
     </div>
   </div>
+</section>
+
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -1239,82 +1240,276 @@ Object.entries(heroImages).forEach(([id, src]) => {
 });
 
 
-// ===== TIER RECOMMENDER =====
-const quizAnswers = {};
-const tierData = {
+// ===== AI ADVISOR =====
+const advisorState = {
+  step: 0,
+  answers: [],
+  tier: null,
+  name: null
+};
+
+const advisorFlow = [
+  // Step 0: initial response handler
+  function(input) {
+    const low = input.toLowerCase();
+    advisorState.answers.push(input);
+    // Detect stage from first message
+    if(low.match(/idea|thinking|want to|dream|concept|haven.t|not sure|early/)) {
+      advisorState.tier = 'spark';
+      return {
+        msg: "Love it. Every great company starts with an idea. A quick question: are you approaching this as a creator or brand builder, or are you thinking more like a traditional founder building a company?",
+        next: 1
+      };
+    } else if(low.match(/caf|restaurant|food|boba|coffee|bar|hospitality/)) {
+      return {
+        msg: "Nice. F&B and hospitality is one of the most exciting spaces right now. Are you pre-opening, already open, or looking to scale multiple locations?",
+        next: 2
+      };
+    } else if(low.match(/scale|expand|multiple|locations|franchise|grow|team of/)) {
+      advisorState.tier = 'superpower';
+      return {
+        msg: "Got it. You are already operating and want to go bigger. Are you looking to raise capital to fuel that growth, or do you have the capital and just need the infrastructure and intelligence?",
+        next: 3
+      };
+    } else if(low.match(/rais|fund|investor|vc|seed|series|pitch|capital/)) {
+      advisorState.tier = 'venture';
+      return {
+        msg: "Fundraising mode. That means you need a tight narrative, investor-ready materials, and a system that does not sleep. How far along are you with the business itself?",
+        next: 4
+      };
+    } else if(low.match(/app|software|tech|platform|saas|product|build|dev/)) {
+      return {
+        msg: "Building in tech. Are you solo or do you have a team? And are you pre-revenue or already generating?",
+        next: 5
+      };
+    } else {
+      return {
+        msg: "Interesting. Tell me more about where you are right now. Have you started building, or are you still in the planning phase?",
+        next: 6
+      };
+    }
+  },
+  // Step 1: creator vs founder
+  function(input) {
+    const low = input.toLowerCase();
+    advisorState.answers.push(input);
+    if(low.match(/creator|brand|content|audience|influenc|personal/)) {
+      advisorState.tier = 'spark';
+      return { msg: "Perfect starting point. Spark is built for exactly this. Free to start, and your $2 today locks 40% off any tier for life when you are ready to go deeper. Last question: what does success look like for you in 12 months?", next: 'final' };
+    } else {
+      advisorState.tier = 'builder';
+      return { msg: "Founder mindset. Good. Then you need more than ideas. You need infrastructure. What is the single biggest thing blocking you right now?", next: 'final' };
+    }
+  },
+  // Step 2: F&B stage
+  function(input) {
+    const low = input.toLowerCase();
+    advisorState.answers.push(input);
+    if(low.match(/pre|planning|not open|opening soon|concept/)) {
+      advisorState.tier = 'builder';
+      return { msg: "Pre-opening is the most critical phase. Builder gives you 6 agents working on formation, branding, market intel and your business model before you spend a dollar on build-out. What is your timeline to open?", next: 'final' };
+    } else if(low.match(/open|operating|running|already/)) {
+      advisorState.tier = 'venture';
+      return { msg: "Already in market. Then the question is optimization and growth. What is your biggest operational challenge right now?", next: 'final' };
+    } else {
+      advisorState.tier = 'superpower';
+      return { msg: "Multi-location is a different game. You need systems that scale, not just tools. What does your current operations infrastructure look like?", next: 'final' };
+    }
+  },
+  // Step 3: scale + capital
+  function(input) {
+    const low = input.toLowerCase();
+    advisorState.answers.push(input);
+    if(low.match(/rais|fund|capital|invest/)) {
+      advisorState.tier = 'superpower';
+    } else {
+      advisorState.tier = 'venture';
+    }
+    return { msg: "Got it. What is the one thing you wish you had more of right now to move faster?", next: 'final' };
+  },
+  // Step 4: fundraising stage
+  function(input) {
+    const low = input.toLowerCase();
+    advisorState.answers.push(input);
+    if(low.match(/early|just start|building|pre-revenue|no revenue/)) {
+      advisorState.tier = 'builder';
+    } else {
+      advisorState.tier = 'venture';
+    }
+    return { msg: "Last question: what is the hardest part of the fundraising process for you right now?", next: 'final' };
+  },
+  // Step 5: tech/app
+  function(input) {
+    const low = input.toLowerCase();
+    advisorState.answers.push(input);
+    if(low.match(/revenue|customer|user|launch|market/)) {
+      advisorState.tier = 'venture';
+    } else if(low.match(/solo|just me|myself|alone/)) {
+      advisorState.tier = 'builder';
+    } else {
+      advisorState.tier = 'venture';
+    }
+    return { msg: "One last thing: are you looking to raise a round in the next 6 months?", next: 'final' };
+  },
+  // Step 6: generic follow-up
+  function(input) {
+    const low = input.toLowerCase();
+    advisorState.answers.push(input);
+    if(low.match(/plan|early|not yet|think|maybe/)) {
+      advisorState.tier = 'spark';
+    } else {
+      advisorState.tier = 'builder';
+    }
+    return { msg: "Good context. What outcome would make joining SPS worth it for you?", next: 'final' };
+  }
+];
+
+const tierResults = {
   spark: {
-    name:'\u26a1 SPARK',
-    color:'#00FF88',
-    reason:'You are early stage and exploring. Spark is the perfect starting point \u2014 validate your idea with the Ideation Agent at zero cost. Your $2 today locks 40% off any tier you choose within 30 days.',
-    card:'<div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="font-size:10px;color:#6B6B8A;">YOUR FOUNDRY RATE</span><span style="font-size:11px;color:#00FF88;">482 spots left</span></div><div style="font-size:28px;font-weight:700;color:#00FF88;font-family:Orbitron,sans-serif;">Free</div><div style="font-size:11px;color:#6B6B8A;margin-top:4px;">$2 locks 40% off any future upgrade, for life</div>',
-    apply:'spark'
+    name: "SPARK",
+    color: "#00FF88",
+    reason: "You are in the early stages of defining your idea and direction. Spark gives you the Ideation Agent, founder profiling, and AI education for free. Your $2 today locks 40% off any tier for life when you are ready to level up.",
+    pricing: '<div style="font-size:11px;color:#6B6B8A;font-family:JetBrains Mono,monospace;margin-bottom:6px;">YOUR FOUNDRY RATE</div><div style="font-size:26px;font-weight:700;color:#00FF88;font-family:Orbitron,sans-serif;">Free</div><div style="font-size:11px;color:#6B6B8A;margin-top:4px;">$2 today locks 40% off all future upgrades for life</div>',
+    tier: 'spark'
   },
   builder: {
-    name:'\u2699\uFE0F BUILDER',
-    color:'#FF5E1A',
-    reason:'You are ready to build. 6 agents come online \u2014 formation, branding, market intel, business model. Your A.I.R. goes live. The $2 Foundry rate locks $119/mo for life.',
-    card:'<div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="font-size:10px;color:#6B6B8A;">YOUR FOUNDRY RATE</span><span style="font-size:11px;color:#00FF88;">187 spots left</span></div><div style="display:flex;align-items:baseline;gap:10px;"><div style="font-size:28px;font-weight:700;color:#FF5E1A;font-family:Orbitron,sans-serif;">$119<span style="font-size:14px;">/mo</span></div><div style="font-size:14px;color:#6B6B8A;text-decoration:line-through;">$199</div></div><div style="font-size:11px;color:#6B6B8A;margin-top:4px;">Save $960/yr \u00b7 Rate locked for life with $2</div>',
-    apply:'builder'
+    name: "BUILDER",
+    color: "#FF5E1A",
+    reason: "You are ready to build. 6 agents go to work on your foundation: entity formation, market intel, branding, and a live business model. Your A.I.R. comes online. $2 locks $119/mo for life.",
+    pricing: '<div style="font-size:11px;color:#6B6B8A;font-family:JetBrains Mono,monospace;margin-bottom:6px;">YOUR FOUNDRY RATE</div><div style="display:flex;align-items:baseline;gap:10px;"><div style="font-size:26px;font-weight:700;color:#FF5E1A;font-family:Orbitron,sans-serif;">$119<span style="font-size:13px;">/mo</span></div><div style="font-size:14px;color:#6B6B8A;text-decoration:line-through;">$199</div></div><div style="font-size:11px;color:#6B6B8A;margin-top:4px;">Save $960/yr. Rate locked for life with $2.</div>',
+    tier: 'builder'
   },
   venture: {
-    name:'\uD83D\uDE80 VENTURE',
-    color:'#FF5E1A',
-    reason:'You are a founder ready to raise. Venture gives you 12 agents, Command Center, Manifest PRD, and the Investor Portal. This is where companies get funded. Lock $359/mo with $2 today.',
-    card:'<div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="font-size:10px;color:#6B6B8A;">YOUR FOUNDRY RATE</span><span style="font-size:11px;color:#00FF88;">91 spots left</span></div><div style="display:flex;align-items:baseline;gap:10px;"><div style="font-size:28px;font-weight:700;color:#FF5E1A;font-family:Orbitron,sans-serif;">$359<span style="font-size:14px;">/mo</span></div><div style="font-size:14px;color:#6B6B8A;text-decoration:line-through;">$599</div></div><div style="font-size:11px;color:#6B6B8A;margin-top:4px;">Save $2,880/yr \u00b7 Rate locked for life with $2</div>',
-    apply:'venture'
+    name: "VENTURE",
+    color: "#FF5E1A",
+    reason: "You are building to raise. Venture gives you 12 agents, the Command Center, Manifest PRD, and the Investor Portal. This is where companies get funded. $2 locks $359/mo for life.",
+    pricing: '<div style="font-size:11px;color:#6B6B8A;font-family:JetBrains Mono,monospace;margin-bottom:6px;">YOUR FOUNDRY RATE</div><div style="display:flex;align-items:baseline;gap:10px;"><div style="font-size:26px;font-weight:700;color:#FF5E1A;font-family:Orbitron,sans-serif;">$359<span style="font-size:13px;">/mo</span></div><div style="font-size:14px;color:#6B6B8A;text-decoration:line-through;">$599</div></div><div style="font-size:11px;color:#6B6B8A;margin-top:4px;">Save $2,880/yr. Rate locked for life with $2.</div>',
+    tier: 'venture'
   },
   superpower: {
-    name:'\u26a1 SUPERPOWER',
-    color:'#9B6BFF',
-    reason:'You are scaling or already operating. Superpower gives you 14+ agents, a dedicated VPS, SPS as an active partner, and All-Access to every event. Lock $899/mo with $2. This is the full arsenal.',
-    card:'<div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="font-size:10px;color:#6B6B8A;">YOUR FOUNDRY RATE</span><span style="font-size:11px;color:#00FF88;">43 spots left</span></div><div style="display:flex;align-items:baseline;gap:10px;"><div style="font-size:28px;font-weight:700;color:#9B6BFF;font-family:Orbitron,sans-serif;">$899<span style="font-size:14px;">/mo</span></div><div style="font-size:14px;color:#6B6B8A;text-decoration:line-through;">$1,499</div></div><div style="font-size:11px;color:#6B6B8A;margin-top:4px;">Save $7,200/yr \u00b7 Rate locked for life with $2</div>',
-    apply:'superpower'
+    name: "SUPERPOWER",
+    color: "#9B6BFF",
+    reason: "You are scaling and you need a real partner. 14+ agents, dedicated VPS, SPS as an active stakeholder, All-Access events, exit modeling. This is the full arsenal. $2 locks $899/mo for life.",
+    pricing: '<div style="font-size:11px;color:#6B6B8A;font-family:JetBrains Mono,monospace;margin-bottom:6px;">YOUR FOUNDRY RATE</div><div style="display:flex;align-items:baseline;gap:10px;"><div style="font-size:26px;font-weight:700;color:#9B6BFF;font-family:Orbitron,sans-serif;">$899<span style="font-size:13px;">/mo</span></div><div style="font-size:14px;color:#6B6B8A;text-decoration:line-through;">$1,499</div></div><div style="font-size:11px;color:#6B6B8A;margin-top:4px;">Save $7,200/yr. Rate locked for life with $2.</div>',
+    tier: 'superpower'
   }
 };
 
-function answer(q, val, el) {
-  quizAnswers[q] = val;
-  document.querySelectorAll('#'+q+' .quiz-opt').forEach(o=>o.classList.remove('selected'));
-  el.classList.add('selected');
-  setTimeout(()=>nextQuestion(q), 350);
+function sendAdvisor() {
+  const input = document.getElementById('advisorInput');
+  const val = input.value.trim();
+  if(!val) return;
+  input.value = '';
+  input.disabled = true;
+  document.getElementById('advisorSend') && (document.getElementById('advisorSend').disabled = true);
+
+  // Add user message
+  addAdvMsg(val, 'user');
+
+  // Typing indicator
+  const typing = addTyping();
+
+  // Get response
+  setTimeout(function() {
+    typing.remove();
+    input.disabled = false;
+
+    const step = advisorState.step;
+    let response;
+
+    if(step === 'final' || advisorState.step === 'final') {
+      showAdvisorResult();
+      return;
+    }
+
+    const handler = advisorFlow[step] || advisorFlow[0];
+    response = handler(val);
+    advisorState.step = response.next;
+
+    addAdvMsg(response.msg, 'ai');
+
+    if(response.next === 'final') {
+      // One more exchange then show result
+      advisorState.step = 'prefinal';
+    }
+
+    if(advisorState.step === 'prefinal') {
+      // After user responds to final question, show result
+      advisorState.step = 'done';
+    }
+
+    input.disabled = false;
+    input.focus();
+  }, 1200 + Math.random()*600);
 }
 
-function nextQuestion(current) {
-  const order = ['q1','q2','q3','q4','qresult'];
-  const idx = order.indexOf(current);
-  const next = order[idx+1];
-  document.getElementById(current).classList.remove('active');
-  if(next === 'qresult') showResult();
-  else document.getElementById(next).classList.add('active');
-  const pct = ((idx+1)/4)*100;
-  document.getElementById('quizBar').style.width = pct+'%';
+function addAdvMsg(text, type) {
+  const msgs = document.getElementById('advisorMessages');
+  const div = document.createElement('div');
+  div.className = 'adv-msg ' + type;
+  div.innerHTML = '<div class="adv-bubble">' + text + '</div>';
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+  return div;
 }
 
-function showResult() {
-  const {q1,q2,q3,q4} = quizAnswers;
-  let tier = 'spark';
-  if(q1==='corporate' || q2==='exit' || (q1==='inmarket' && q3==='serial')) tier='superpower';
-  else if(q1==='inmarket' || q2==='scale' || (q2==='raise' && q4==='now')) tier='venture';
-  else if(q1==='building' || q2==='raise' || (q2==='form' && q4!=='exploring')) tier='venture';
-  else if(q2==='form' || (q1==='idea' && q4==='soon' && q3!=='student' && q3!=='creator')) tier='builder';
-  else tier='spark';
-  
-  const t = tierData[tier];
-  document.getElementById('resultTierName').textContent = t.name;
-  document.getElementById('resultTierName').style.color = t.color;
-  document.getElementById('resultReason').textContent = t.reason;
-  document.getElementById('resultCard').innerHTML = t.card;
-  document.getElementById('resultApplyBtn').href = '#'; document.getElementById('resultApplyBtn').onclick = function(){openWaitlist(t.apply);return false;};
-  document.getElementById('qresult').classList.add('active');
-  document.getElementById('quizBar').style.width = '100%';
+function addTyping() {
+  const msgs = document.getElementById('advisorMessages');
+  const div = document.createElement('div');
+  div.className = 'adv-msg ai';
+  div.innerHTML = '<div class="adv-typing"><span></span><span></span><span></span></div>';
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+  return div;
 }
 
-function resetQuiz() {
-  Object.keys(quizAnswers).forEach(k=>delete quizAnswers[k]);
-  document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));
-  document.getElementById('q1').classList.add('active');
-  document.getElementById('quizBar').style.width = '0%';
+function showAdvisorResult() {
+  // Add final AI message
+  const t = tierResults[advisorState.tier] || tierResults.venture;
+  addAdvMsg("Based on everything you have shared, I have a clear recommendation for you.", 'ai');
+
+  setTimeout(function() {
+    document.getElementById('advisorInputWrap').style.display = 'none';
+    const result = document.getElementById('advisorResult');
+    result.style.display = 'block';
+    document.getElementById('arTierName').textContent = t.name;
+    document.getElementById('arTierName').style.color = t.color;
+    document.getElementById('arReason').textContent = t.reason;
+    document.getElementById('arPricing').innerHTML = t.pricing;
+    document.getElementById('arWaitlistBtn').onclick = function() { openWaitlist(t.tier); return false; };
+    document.getElementById('advisorMessages').scrollTop = 99999;
+  }, 800);
 }
+
+function resetAdvisor() {
+  advisorState.step = 0;
+  advisorState.answers = [];
+  advisorState.tier = null;
+  document.getElementById('advisorMessages').innerHTML = '<div class="adv-msg ai"><div class="adv-bubble">Hi! I am your SPS Advisor. Tell me about what you are working on or thinking about building. There are no wrong answers.</div></div>';
+  document.getElementById('advisorInputWrap').style.display = 'flex';
+  document.getElementById('advisorResult').style.display = 'none';
+  document.getElementById('advisorInput').disabled = false;
+  document.getElementById('advisorInput').value = '';
+}
+
+// Handle "done" state - show result after final answer
+const _origSend = sendAdvisor;
+window.sendAdvisor = function() {
+  if(advisorState.step === 'done') {
+    const input = document.getElementById('advisorInput');
+    const val = input.value.trim();
+    if(!val) return;
+    input.value = '';
+    addAdvMsg(val, 'user');
+    const typing = addTyping();
+    setTimeout(function() {
+      typing.remove();
+      showAdvisorResult();
+    }, 1400);
+    return;
+  }
+  _origSend();
+};
 
 // ===== FAQ =====
 const faqs = [{"cat": "pricing", "q": "What is the Foundry Special?", "a": "The Foundry Special is our founding member offer. Pay $2 today to reserve your spot and lock in 40% off your tier's monthly rate — for life. Limited to founding spots only — once they're gone, full price applies."}, {"cat": "pricing", "q": "What does the $2 actually get me?", "a": "Your $2 reserves a founding spot in your chosen tier and locks your Foundry rate. It also starts your 30-day window to commit to any higher tier at that same 40% discount. The $2 is applied as a credit toward your first billing cycle after approval."}, {"cat": "pricing", "q": "What happens if I cancel?", "a": "Your Foundry rate is tied to your continuous membership. Cancel and it's permanently gone — you can rejoin, but only at the current market rate. This is why we offer a Pause option: so you never have to cancel just because of a tough month."}, {"cat": "pricing", "q": "Can I downgrade to a lower tier?", "a": "No. Once you're on a tier, your options are to upgrade or cancel. Each tier runs real infrastructure — your A.I.R. instance, dedicated agents, content access — that we can't partially unwind."}, {"cat": "pricing", "q": "How does the 30-day upgrade window work?", "a": "From the day you're approved, you have 30 days to commit to your next tier and freeze that 40% rate. Just click Lock My Rate in your member dashboard. No payment required — just your commitment. Miss the window and standard pricing applies."}, {"cat": "pricing", "q": "What if a tier isn't live yet when I commit?", "a": "If you commit to a tier that isn't live yet, your rate is frozen from the moment you commit. When that tier launches, you'll be notified and billing begins at your locked rate."}, {"cat": "air", "q": "What is A.I.R.?", "a": "A.I.R. stands for AI Regent — your personal AI operating system, managed and hosted by SPS. It's a named, persistent AI agent that knows your business, manages your projects, and works around the clock. Each member gets their own isolated instance."}, {"cat": "air", "q": "Can I name my A.I.R. instance?", "a": "Yes. When you're onboarded, you'll name your A.I.R. — most members use a personal or brand name. Your A.I.R. remembers your context, your projects, and your preferences across every session."}, {"cat": "air", "q": "What happens to my A.I.R. if I cancel?", "a": "Your A.I.R. goes offline. Your data is retained for 30 days post-cancellation so you can export anything you need. After 30 days it's deleted. This is another reason to use the Pause option instead."}, {"cat": "application", "q": "How long does approval take?", "a": "Typically 1 to 3 business days. We review every application personally to ensure the right fit. You'll receive an email and notification as soon as a decision is made."}, {"cat": "application", "q": "Why do you require an application?", "a": "SPS isn't a self-serve subscription — it's a curated membership. We want to make sure we can genuinely serve you at the level your tier requires. This protects the quality of the community and the platform for everyone."}, {"cat": "application", "q": "What if I'm not approved?", "a": "We'll send a friendly note explaining why and, if applicable, suggest a better-fit tier. Your $2 will be fully refunded. You can reapply in 30 days or start with Spark and grow from there."}, {"cat": "content", "q": "What content is included in my membership?", "a": "Paid tiers include access to the SPS podcast library and select live virtual events. Venture members get most live events and one ticket to the Annual Flagship. Superpower members receive full All-Access — every podcast, every event, every year."}, {"cat": "content", "q": "What is the Annual Flagship Event?", "a": "Once per year, SPS hosts an invite-only event for members — part summit, part demo day, part network. Superpower members attend automatically. Details on format and location will be announced to members first."}, {"cat": "billing", "q": "When does billing start?", "a": "Billing starts the day your application is approved. Your $2 is applied as a credit to your first cycle. For Spark (free), there's no billing — just your $2 reservation credit."}, {"cat": "billing", "q": "What is the pause policy?", "a": "You may pause your membership for up to 60 days per calendar year. Your A.I.R. enters standby mode, your rate stays locked, and your spot is held. Pause is available once per 12-month period."}];
