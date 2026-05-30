@@ -463,6 +463,65 @@ footer{
   .journey-grid,.journey-grid-2{grid-template-columns:repeat(2,1fr);}
 }
 
+
+.foundry-tag{font-size:11px;color:#FF5E1A;background:rgba(255,94,26,0.08);border:1px solid rgba(255,94,26,0.2);border-radius:4px;padding:4px 10px;margin-top:8px;font-family:'JetBrains Mono',monospace;letter-spacing:0.5px;}
+.foundry-tag strong{color:#FF5E1A;}
+.tier-spots{font-size:10px;font-family:'JetBrains Mono',monospace;color:#6B6B8A;margin-top:12px;letter-spacing:0.5px;}
+.spots-left{color:#00FF88;}
+
+
+/* QUIZ / TIER RECOMMENDER */
+.quiz-container{max-width:640px;margin:0 auto;}
+.quiz-progress{height:3px;background:rgba(255,255,255,0.06);border-radius:2px;margin-bottom:40px;}
+.quiz-bar{height:3px;background:linear-gradient(90deg,#FF5E1A,#9B6BFF);border-radius:2px;transition:width 0.4s ease;}
+.quiz-step{display:none;}
+.quiz-step.active{display:block;animation:fadeInUp 0.3s ease;}
+.quiz-q{font-family:'Orbitron',sans-serif;font-weight:700;font-size:20px;color:#F0EDF8;margin-bottom:28px;line-height:1.3;}
+.quiz-options{display:flex;flex-direction:column;gap:12px;}
+.quiz-opt{display:flex;align-items:center;gap:16px;padding:16px 20px;background:#13131F;border:1px solid rgba(255,255,255,0.06);border-radius:10px;cursor:pointer;transition:all 0.2s;font-size:14px;color:#C0BDD8;}
+.quiz-opt:hover{border-color:rgba(255,94,26,0.4);background:rgba(255,94,26,0.05);color:#F0EDF8;}
+.quiz-opt.selected{border-color:#FF5E1A;background:rgba(255,94,26,0.08);color:#F0EDF8;}
+.qo-icon{font-size:22px;width:32px;flex-shrink:0;text-align:center;}
+.quiz-result-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#6B6B8A;margin-bottom:12px;}
+.quiz-result-tier{font-family:'Orbitron',sans-serif;font-weight:900;font-size:36px;color:#FF5E1A;margin-bottom:12px;text-shadow:0 0 40px rgba(255,94,26,0.4);}
+.quiz-result-reason{font-size:15px;color:#C0BDD8;line-height:1.6;margin-bottom:28px;}
+.quiz-result-card{background:#13131F;border:1px solid rgba(255,94,26,0.2);border-radius:12px;padding:20px 24px;margin-bottom:28px;}
+.quiz-result-actions{display:flex;flex-direction:column;align-items:flex-start;}
+
+/* MEMBERSHIP RULES */
+.rules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;max-width:1080px;margin:0 auto;}
+.rule-card{background:#0D0D18;border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:28px;transition:border-color 0.2s;}
+.rule-card:hover{border-color:rgba(255,94,26,0.2);}
+.rule-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:#FF5E1A;margin-bottom:10px;opacity:0.7;}
+.rule-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;color:#F0EDF8;margin-bottom:10px;}
+.rule-body{font-size:13px;color:#7A788A;line-height:1.7;}
+
+/* FAQ */
+.faq-cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px;max-width:860px;margin-left:auto;margin-right:auto;}
+.faq-cat{padding:7px 16px;border:1px solid rgba(255,255,255,0.08);border-radius:20px;font-size:12px;font-family:'JetBrains Mono',monospace;color:#6B6B8A;cursor:pointer;transition:all 0.2s;}
+.faq-cat.active,.faq-cat:hover{border-color:rgba(255,94,26,0.4);color:#FF5E1A;}
+.faq-list{max-width:860px;margin:0 auto 48px;}
+.faq-item{border-bottom:1px solid rgba(255,255,255,0.05);padding:0;}
+.faq-item[style*="none"]{display:none;}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:20px 0;cursor:pointer;font-size:15px;font-weight:600;color:#F0EDF8;gap:16px;}
+.faq-q:hover{color:#FF5E1A;}
+.faq-chevron{color:#6B6B8A;font-size:12px;flex-shrink:0;transition:transform 0.2s;}
+.faq-item.open .faq-chevron{transform:rotate(180deg);}
+.faq-a{display:none;padding:0 0 20px;font-size:13px;color:#7A788A;line-height:1.8;}
+.faq-item.open .faq-a{display:block;}
+.faq-ask{max-width:860px;margin:0 auto;background:#0D0D18;border:1px solid rgba(155,107,255,0.2);border-radius:12px;padding:24px 28px;}
+.faq-ask-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#9B6BFF;margin-bottom:14px;}
+.faq-ask-row{display:flex;gap:12px;}
+.faq-ask-input{flex:1;background:#13131F;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px 16px;font-size:14px;color:#F0EDF8;font-family:'Space Grotesk',sans-serif;outline:none;}
+.faq-ask-input:focus{border-color:rgba(155,107,255,0.4);}
+.faq-ask-btn{background:#9B6BFF;color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;cursor:pointer;white-space:nowrap;}
+.faq-ask-answer{margin-top:16px;font-size:13px;color:#C0BDD8;line-height:1.7;display:none;}
+.faq-ask-answer.visible{display:block;}
+
+/* FLOATING CHAT BUTTON */
+.chat-fab{position:fixed;bottom:28px;right:28px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#9B6BFF,#FF5E1A);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:150;box-shadow:0 4px 24px rgba(155,107,255,0.4);transition:transform 0.2s;}
+.chat-fab:hover{transform:scale(1.1);}
+
 /* DEMO MODAL */
 .demo-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.92);z-index:200;align-items:center;justify-content:center;padding:20px;}
 .demo-overlay.open{display:flex;}
@@ -844,14 +903,14 @@ footer{
           <div class="tier-feature"><span class="tf-check">✓</span>AI Education modules</div>
           <div class="tier-feature"><span class="tf-check">✓</span>SPS Community access</div>
         </div>
-        <a href="sps-login.html" class="tier-cta outline">Get Started Free</a>
-        <a href="#" onclick="openDemo();showDemo('spark',document.querySelector('.demo-tab'));return false;" class="tier-cta outline" style="margin-top:8px;font-size:11px;color:var(--muted);border-color:rgba(255,255,255,0.08);">▶ See Spark Demo</a>
+        <a href="sps-apply.html?tier=spark" class="tier-cta outline">Apply for Spark →</a>
+        <div class="tier-spots" id="spots-spark">⚡ 500 founding spots · <span class="spots-left">482 remaining</span></div><a href="#" onclick="openDemo();showDemo('spark',document.querySelector('.demo-tab'));return false;" class="tier-cta outline" style="margin-top:8px;font-size:11px;color:var(--muted);border-color:rgba(255,255,255,0.08);">▶ See Spark Demo</a>
       </div>
 
       <div class="tier-card reveal">
         <span class="tier-icon">⚙️</span>
         <div class="tier-name">Builder</div>
-        <div class="tier-price">$199<span>/mo</span></div>
+        <div class="tier-price">$199<span>/mo</span></div><div class="foundry-tag">🔒 Foundry rate: <strong>$119/mo</strong> · Save $960/yr</div>
         <div class="tier-sub">Build your foundation</div>
         <div class="tier-divider"></div>
         <div class="tier-features">
@@ -862,8 +921,8 @@ footer{
           <div class="tier-feature"><span class="tf-check">✓</span>Live Business Model</div>
           <div class="tier-feature"><span class="tf-check">✓</span>SPS Dashboard</div>
         </div>
-        <a href="sps-login.html" class="tier-cta outline">Start Building</a>
-        <a href="#" onclick="openDemo();showDemo('builder',document.querySelectorAll('.demo-tab')[1]);return false;" class="tier-cta outline" style="margin-top:8px;font-size:11px;color:var(--muted);border-color:rgba(255,255,255,0.08);">▶ See Builder Demo</a>
+        <a href="sps-apply.html?tier=builder" class="tier-cta outline">Apply for Builder →</a>
+        <div class="tier-spots" id="spots-builder">⚡ 200 founding spots · <span class="spots-left">187 remaining</span></div><a href="#" onclick="openDemo();showDemo('builder',document.querySelectorAll('.demo-tab')[1]);return false;" class="tier-cta outline" style="margin-top:8px;font-size:11px;color:var(--muted);border-color:rgba(255,255,255,0.08);">▶ See Builder Demo</a>
       </div>
 
       <div class="tier-card featured reveal">
@@ -882,14 +941,14 @@ footer{
           <div class="tier-feature"><span class="tf-check orange">✓</span>Manifest (Living PRD)</div>
           <div class="tier-feature"><span class="tf-check orange">✓</span>Command Center</div>
         </div>
-        <a href="sps-login.html" class="tier-cta filled">Deploy Your A.I.R.</a>
-        <a href="#" onclick="openDemo();showDemo('venture',document.querySelectorAll('.demo-tab')[2]);return false;" class="tier-cta outline" style="margin-top:8px;font-size:11px;color:var(--muted);border-color:rgba(255,255,255,0.08);">▶ See Venture Demo</a>
+        <a href="sps-apply.html?tier=venture" class="tier-cta filled">Apply for Venture →</a>
+        <div class="tier-spots" id="spots-venture">⚡ 100 founding spots · <span class="spots-left">91 remaining</span></div><a href="#" onclick="openDemo();showDemo('venture',document.querySelectorAll('.demo-tab')[2]);return false;" class="tier-cta outline" style="margin-top:8px;font-size:11px;color:var(--muted);border-color:rgba(255,255,255,0.08);">▶ See Venture Demo</a>
       </div>
 
       <div class="tier-card reveal">
         <span class="tier-icon">⚡</span>
         <div class="tier-name" style="color:var(--purple);">Superpower</div>
-        <div class="tier-price">$1,499<span>/mo</span></div>
+        <div class="tier-price">$1,499<span>/mo</span></div><div class="foundry-tag">🔒 Foundry rate: <strong>$899/mo</strong> · Save $7,200/yr</div>
         <div class="tier-sub">Full SPS partnership</div>
         <div class="tier-divider"></div>
         <div class="tier-features">
@@ -901,8 +960,8 @@ footer{
           <div class="tier-feature"><span class="tf-check" style="color:var(--purple);">✓</span>Exit planning</div>
           <div class="tier-feature"><span class="tf-check" style="color:var(--purple);">✓</span>Priority everything</div>
         </div>
-        <a href="sps-login.html" class="tier-cta outline" style="border-color:rgba(155,107,255,0.3);color:var(--purple);">Go Superpower</a>
-        <a href="#" onclick="openDemo();showDemo('superpower',document.querySelectorAll('.demo-tab')[3]);return false;" class="tier-cta outline" style="margin-top:8px;font-size:11px;color:var(--muted);border-color:rgba(255,255,255,0.08);">▶ See Superpower Demo</a>
+        <a href="sps-apply.html?tier=superpower" class="tier-cta outline" style="border-color:rgba(155,107,255,0.3);color:var(--purple);">Apply for Superpower →</a>
+        <div class="tier-spots" id="spots-superpower">⚡ 50 founding spots · <span class="spots-left">43 remaining</span></div><a href="#" onclick="openDemo();showDemo('superpower',document.querySelectorAll('.demo-tab')[3]);return false;" class="tier-cta outline" style="margin-top:8px;font-size:11px;color:var(--muted);border-color:rgba(255,255,255,0.08);">▶ See Superpower Demo</a>
       </div>
 
     </div>
@@ -910,6 +969,169 @@ footer{
 </section>
 
 <!-- FOOTER -->
+
+<!-- ═══════════════════════════════════════════════════════════
+     TIER RECOMMENDATION WIDGET
+═══════════════════════════════════════════════════════════ -->
+<section class="section" id="find-tier" style="background:#07070F;padding:80px 24px;">
+  <div class="section-header">
+    <div class="section-tag">FIND YOUR SUPERPOWER</div>
+    <h2 class="section-title">Not sure which tier is right?</h2>
+    <p class="section-sub">Answer 4 questions. We'll match you in 60 seconds.</p>
+  </div>
+  <div class="quiz-container">
+    <div class="quiz-progress"><div class="quiz-bar" id="quizBar" style="width:0%"></div></div>
+    <div class="quiz-steps">
+
+      <!-- Q1 -->
+      <div class="quiz-step active" id="q1">
+        <div class="quiz-q">Where are you right now?</div>
+        <div class="quiz-options">
+          <div class="quiz-opt" onclick="answer('q1','idea',this)"><span class="qo-icon">💡</span><span>I have an idea — haven't started yet</span></div>
+          <div class="quiz-opt" onclick="answer('q1','building',this)"><span class="qo-icon">🔨</span><span>I'm actively building something</span></div>
+          <div class="quiz-opt" onclick="answer('q1','inmarket',this)"><span class="qo-icon">🚀</span><span>I have a business and want to grow</span></div>
+          <div class="quiz-opt" onclick="answer('q1','corporate',this)"><span class="qo-icon">🏢</span><span>I'm part of a team or corporation</span></div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-step" id="q2">
+        <div class="quiz-q">What's your primary goal?</div>
+        <div class="quiz-options">
+          <div class="quiz-opt" onclick="answer('q2','validate',this)"><span class="qo-icon">✅</span><span>Validate if my idea is worth pursuing</span></div>
+          <div class="quiz-opt" onclick="answer('q2','form',this)"><span class="qo-icon">🏛</span><span>Form my company and build the foundation</span></div>
+          <div class="quiz-opt" onclick="answer('q2','raise',this)"><span class="qo-icon">💰</span><span>Raise funding from investors</span></div>
+          <div class="quiz-opt" onclick="answer('q2','scale',this)"><span class="qo-icon">📈</span><span>Scale what I've already built</span></div>
+          <div class="quiz-opt" onclick="answer('q2','exit',this)"><span class="qo-icon">🚪</span><span>Prepare for an exit</span></div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-step" id="q3">
+        <div class="quiz-q">How would you describe yourself?</div>
+        <div class="quiz-options">
+          <div class="quiz-opt" onclick="answer('q3','creator',this)"><span class="qo-icon">🎨</span><span>Creator or influencer</span></div>
+          <div class="quiz-opt" onclick="answer('q3','firsttime',this)"><span class="qo-icon">🚀</span><span>First-time founder</span></div>
+          <div class="quiz-opt" onclick="answer('q3','serial',this)"><span class="qo-icon">⚡</span><span>Serial entrepreneur</span></div>
+          <div class="quiz-opt" onclick="answer('q3','team',this)"><span class="qo-icon">👥</span><span>Corporate or team innovator</span></div>
+          <div class="quiz-opt" onclick="answer('q3','student',this)"><span class="qo-icon">🎓</span><span>Student</span></div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-step" id="q4">
+        <div class="quiz-q">What's your timeline?</div>
+        <div class="quiz-options">
+          <div class="quiz-opt" onclick="answer('q4','exploring',this)"><span class="qo-icon">🔍</span><span>Just exploring for now</span></div>
+          <div class="quiz-opt" onclick="answer('q4','soon',this)"><span class="qo-icon">⚡</span><span>Ready to move in the next 30 days</span></div>
+          <div class="quiz-opt" onclick="answer('q4','now',this)"><span class="qo-icon">🚀</span><span>Already in market — need help now</span></div>
+        </div>
+      </div>
+
+      <!-- RESULT -->
+      <div class="quiz-step" id="qresult">
+        <div class="quiz-result-label">Based on your answers...</div>
+        <div class="quiz-result-tier" id="resultTierName"></div>
+        <div class="quiz-result-reason" id="resultReason"></div>
+        <div class="quiz-result-card" id="resultCard"></div>
+        <div class="quiz-result-actions">
+          <a href="#" id="resultApplyBtn" class="btn-primary" style="padding:14px 32px;">Reserve My Spot — $2 →</a>
+          <a href="#" onclick="resetQuiz();return false;" style="font-size:12px;color:var(--muted);text-decoration:none;margin-top:8px;display:block;">← Retake quiz</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MEMBERSHIP RULES
+═══════════════════════════════════════════════════════════ -->
+<section class="section" id="rules" style="background:#05050A;padding:80px 24px;">
+  <div class="section-header">
+    <div class="section-tag">MEMBERSHIP RULES</div>
+    <h2 class="section-title">How SPS Membership Works</h2>
+    <p class="section-sub">No fine print. Just straight rules.</p>
+  </div>
+  <div class="rules-grid">
+    <div class="rule-card">
+      <div class="rule-num">01</div>
+      <div class="rule-title">The Foundry Special — $2</div>
+      <div class="rule-body">Pay $2 today to reserve your spot and lock in the Foundry rate: 40% off your chosen tier for life. This offer is limited to founding spots only — once they're gone, full price applies to all new members.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-num">02</div>
+      <div class="rule-title">30-Day Upgrade Window</div>
+      <div class="rule-body">From the day you're approved, you have 30 days to commit to your next tier and freeze that 40% rate. Simply click "Lock My [Tier] Rate" in your member dashboard. No payment required — just your commitment. Miss the window and standard pricing applies.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-num">03</div>
+      <div class="rule-title">No Downgrades</div>
+      <div class="rule-body">Once you're on a tier, you can upgrade or cancel — but not downgrade. Each tier runs real infrastructure (your A.I.R. instance, dedicated agents, content access) that we can't partially unwind. If a tier no longer fits, we'll help you transition out gracefully.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-num">04</div>
+      <div class="rule-title">Cancel = Lose Your Rate</div>
+      <div class="rule-body">Your Foundry rate is tied to your continuous membership. Cancel and it's gone — permanently. You can rejoin, but only at the current market rate. We offer a limited pause option so you never have to make that call in a rough month.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-num">05</div>
+      <div class="rule-title">Membership Pause</div>
+      <div class="rule-body">Need a breather? You may pause your membership for up to 60 days per calendar year. Your A.I.R. goes into standby, your rate stays locked, and your spot is held. Pause is available once per 12-month period. See FAQ for full details.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-num">06</div>
+      <div class="rule-title">Application & Approval</div>
+      <div class="rule-body">SPS is application-based. We review every submission to ensure the right fit between your goals and our capabilities. The $2 is processed at application. Approval typically takes 1–3 business days. If we're not the right match, we'll refund your $2, no questions asked.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-num">07</div>
+      <div class="rule-title">Tier Availability</div>
+      <div class="rule-body">Each tier has a fixed number of Foundry spots. Spark: 500. Builder: 200. Venture: 100. Superpower: 50. Once a tier fills, new applicants join a waitlist at full market rate. Founding members always have priority for upgrades within the Foundry window.</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-num">08</div>
+      <div class="rule-title">Content & Events Access</div>
+      <div class="rule-body">All paid tiers include access to the SPS podcast library and select live events. Superpower members receive full All-Access — every event, every replay, every year, including the Annual Flagship. Access scales with your tier and persists as long as your membership is active.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FAQ
+═══════════════════════════════════════════════════════════ -->
+<section class="section" id="faq" style="background:#07070F;padding:80px 24px;">
+  <div class="section-header">
+    <div class="section-tag">FAQ</div>
+    <h2 class="section-title">Questions &amp; Answers</h2>
+    <p class="section-sub">Still have questions? Ask our AI below.</p>
+  </div>
+  <div class="faq-cats">
+    <div class="faq-cat active" onclick="filterFaq('all',this)">All</div>
+    <div class="faq-cat" onclick="filterFaq('pricing',this)">Pricing</div>
+    <div class="faq-cat" onclick="filterFaq('air',this)">A.I.R.</div>
+    <div class="faq-cat" onclick="filterFaq('application',this)">Application</div>
+    <div class="faq-cat" onclick="filterFaq('content',this)">Content &amp; Events</div>
+    <div class="faq-cat" onclick="filterFaq('billing',this)">Billing</div>
+  </div>
+  <div class="faq-list" id="faqList"></div>
+  <!-- AI Chat widget placeholder -->
+  <div class="faq-ask">
+    <div class="faq-ask-label">Don't see your question?</div>
+    <div class="faq-ask-row">
+      <input type="text" class="faq-ask-input" id="faqAskInput" placeholder="Ask anything about SPS membership…" onkeydown="if(event.key==='Enter')askFaq()">
+      <button class="faq-ask-btn" onclick="askFaq()">Ask AI →</button>
+    </div>
+    <div class="faq-ask-answer" id="faqAnswer"></div>
+  </div>
+</section>
+
+<!-- FLOATING AI CHAT BUTTON -->
+<div class="chat-fab" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'});document.getElementById('faqAskInput').focus();" title="Ask a question">
+  <span style="font-size:22px;">💬</span>
+</div>
+
+
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
@@ -1043,6 +1265,148 @@ Object.entries(heroImages).forEach(([id, src]) => {
     el.style.backgroundPosition = 'center';
   }
 });
+
+
+// ===== TIER RECOMMENDER =====
+const quizAnswers = {};
+const tierData = {
+  spark: {
+    name:'⚡ SPARK',
+    color:'#00FF88',
+    price:'Free',
+    foundry:'Free + 40% off future upgrades',
+    reason:'You're early stage and exploring. Spark is the perfect starting point — validate your idea with the Ideation Agent at zero cost. Your $2 today locks 40% off any tier you choose within 30 days.',
+    card:'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6B6B8A;">YOUR FOUNDRY RATE</span><span style="font-size:11px;color:#00FF88;font-family:'JetBrains Mono',monospace;">482 spots left</span></div><div style="font-size:28px;font-weight:700;color:#00FF88;font-family:'Orbitron',sans-serif;">Free</div><div style="font-size:11px;color:#6B6B8A;margin-top:4px;">$2 → 40% off any future upgrade, locked for life</div>',
+    apply:'spark'
+  },
+  builder: {
+    name:'⚙️ BUILDER',
+    color:'#FF5E1A',
+    price:'$199/mo',
+    foundry:'$119/mo — save $960/yr',
+    reason:'You're ready to build. 6 agents come online — formation, branding, market intel, business model. Your A.I.R. goes live. The $2 Foundry rate locks $119/mo for life.',
+    card:'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6B6B8A;">YOUR FOUNDRY RATE</span><span style="font-size:11px;color:#00FF88;font-family:'JetBrains Mono',monospace;">187 spots left</span></div><div style="display:flex;align-items:baseline;gap:10px;"><div style="font-size:28px;font-weight:700;color:#FF5E1A;font-family:'Orbitron',sans-serif;">$119<span style="font-size:14px;">/mo</span></div><div style="font-size:14px;color:#6B6B8A;text-decoration:line-through;">$199</div></div><div style="font-size:11px;color:#6B6B8A;margin-top:4px;">Save $960/yr · Rate locked for life with $2</div>',
+    apply:'builder'
+  },
+  venture: {
+    name:'🚀 VENTURE',
+    color:'#FF5E1A',
+    price:'$599/mo',
+    foundry:'$359/mo — save $2,880/yr',
+    reason:'You're a founder ready to raise. Venture gives you 12 agents, Command Center, Manifest PRD, and the Investor Portal. This is where companies get funded. Lock $359/mo with $2 today.',
+    card:'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6B6B8A;">YOUR FOUNDRY RATE</span><span style="font-size:11px;color:#00FF88;font-family:'JetBrains Mono',monospace;">91 spots left</span></div><div style="display:flex;align-items:baseline;gap:10px;"><div style="font-size:28px;font-weight:700;color:#FF5E1A;font-family:'Orbitron',sans-serif;">$359<span style="font-size:14px;">/mo</span></div><div style="font-size:14px;color:#6B6B8A;text-decoration:line-through;">$599</div></div><div style="font-size:11px;color:#6B6B8A;margin-top:4px;">Save $2,880/yr · Rate locked for life with $2</div>',
+    apply:'venture'
+  },
+  superpower: {
+    name:'⚡ SUPERPOWER',
+    color:'#9B6BFF',
+    price:'$1,499/mo',
+    foundry:'$899/mo — save $7,200/yr',
+    reason:'You're scaling or already operating. Superpower gives you 14+ agents, a dedicated VPS, SPS as an active partner, and All-Access to every event. Lock $899/mo with $2. This is the full arsenal.',
+    card:'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6B6B8A;">YOUR FOUNDRY RATE</span><span style="font-size:11px;color:#00FF88;font-family:'JetBrains Mono',monospace;">43 spots left</span></div><div style="display:flex;align-items:baseline;gap:10px;"><div style="font-size:28px;font-weight:700;color:#9B6BFF;font-family:'Orbitron',sans-serif;">$899<span style="font-size:14px;">/mo</span></div><div style="font-size:14px;color:#6B6B8A;text-decoration:line-through;">$1,499</div></div><div style="font-size:11px;color:#6B6B8A;margin-top:4px;">Save $7,200/yr · Rate locked for life with $2</div>',
+    apply:'superpower'
+  }
+};
+
+function answer(q, val, el) {
+  quizAnswers[q] = val;
+  document.querySelectorAll('#'+q+' .quiz-opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  setTimeout(()=>nextQuestion(q), 350);
+}
+
+function nextQuestion(current) {
+  const order = ['q1','q2','q3','q4','qresult'];
+  const idx = order.indexOf(current);
+  const next = order[idx+1];
+  document.getElementById(current).classList.remove('active');
+  if(next === 'qresult') showResult();
+  else document.getElementById(next).classList.add('active');
+  const pct = ((idx+1)/4)*100;
+  document.getElementById('quizBar').style.width = pct+'%';
+}
+
+function showResult() {
+  const {q1,q2,q3,q4} = quizAnswers;
+  let tier = 'spark';
+  if(q1==='corporate' || q2==='exit' || (q1==='inmarket' && q3==='serial')) tier='superpower';
+  else if(q1==='inmarket' || q2==='scale' || (q2==='raise' && q4==='now')) tier='venture';
+  else if(q1==='building' || q2==='raise' || (q2==='form' && q4!=='exploring')) tier='venture';
+  else if(q2==='form' || (q1==='idea' && q4==='soon' && q3!=='student' && q3!=='creator')) tier='builder';
+  else tier='spark';
+  
+  const t = tierData[tier];
+  document.getElementById('resultTierName').textContent = t.name;
+  document.getElementById('resultTierName').style.color = t.color;
+  document.getElementById('resultReason').textContent = t.reason;
+  document.getElementById('resultCard').innerHTML = t.card;
+  document.getElementById('resultApplyBtn').href = 'sps-apply.html?tier='+t.apply;
+  document.getElementById('qresult').classList.add('active');
+  document.getElementById('quizBar').style.width = '100%';
+}
+
+function resetQuiz() {
+  Object.keys(quizAnswers).forEach(k=>delete quizAnswers[k]);
+  document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('q1').classList.add('active');
+  document.getElementById('quizBar').style.width = '0%';
+}
+
+// ===== FAQ =====
+const faqs = [
+  {cat:'pricing', q:'What is the Foundry Special?', a:'The Foundry Special is our founding member offer. Pay $2 today to reserve your spot and lock in 40% off your tier's monthly rate — for life. It's limited to the founding spots in each tier. Once those spots are filled, new members pay full price.'},
+  {cat:'pricing', q:'What does the $2 actually get me?', a:'Your $2 reserves a founding spot in your chosen tier and locks your Foundry rate. It also starts your 30-day window to commit to any higher tier at that same 40% discount. The $2 is applied as a credit toward your first billing cycle once approved.'},
+  {cat:'pricing', q:'What happens if I cancel?', a:'Your Foundry rate is tied to your continuous membership. Cancel and it's permanently gone — you can rejoin, but only at the current market rate. This is why we offer a Pause option: so you never have to cancel just because of a tough month.'},
+  {cat:'pricing', q:'Can I downgrade to a lower tier?', a:'No. Once you're on a tier, your options are to upgrade or cancel. Each tier runs real infrastructure — your A.I.R. instance, dedicated agents, content access — that we can't partially unwind. If a tier no longer fits, contact us and we'll help you transition out.'},
+  {cat:'pricing', q:'How does the 30-day upgrade window work?', a:'From the day you're approved, you have 30 days to commit to your next tier and freeze that 40% rate. Just click "Lock My Rate" in your member dashboard — no payment required, just your commitment. When that tier goes live (some tiers may launch after others), your Foundry rate activates automatically.'},
+  {cat:'pricing', q:'What if a tier isn't live yet when I commit?', a:'Great question. SPS is rolling out tiers in stages. If you commit to a tier that isn't live yet, your rate is frozen from the moment you commit. When that tier launches, you'll be notified and your billing begins at your locked rate.'},
+  {cat:'air', q:'What is A.I.R.?', a:'A.I.R. stands for AI Regent — your personal AI operating system, managed and hosted by SPS. Think of it as your own Jarvis: a named, persistent AI agent that knows your business, manages your projects, orchestrates other agents, and works around the clock. Each member gets their own isolated instance.'},
+  {cat:'air', q:'Can I name my A.I.R. instance?', a:'Yes. When you're onboarded, you'll name your A.I.R. — most members use a personal or brand name. Your A.I.R. remembers your context, your projects, and your preferences across every session.'},
+  {cat:'air', q:'What happens to my A.I.R. if I cancel?', a:'Your A.I.R. goes offline. Your data is retained for 30 days post-cancellation so you can export anything you need. After 30 days it's deleted. If you rejoin (at full market rate), you'll start fresh. This is another reason to use the Pause option instead.'},
+  {cat:'application', q:'How long does approval take?', a:'Typically 1–3 business days. We review every application personally to ensure the right fit. You'll receive an email and notification as soon as a decision is made.'},
+  {cat:'application', q:'Why do you require an application?', a:'SPS isn't a self-serve subscription — it's a curated membership. We want to make sure we can genuinely serve you at the level your tier requires. This also protects the quality of the community and the platform for everyone.'},
+  {cat:'application', q:'What if I'm not approved?', a:'We'll send a friendly note explaining why and, if applicable, suggest a better-fit tier. Your $2 will be fully refunded. You can reapply in 30 days or start with Spark and grow from there.'},
+  {cat:'content', q:'What content is included in my membership?', a:'Paid tiers include access to the SPS podcast library and select live virtual events. Venture members get most live events and 1 ticket to the Annual Flagship. Superpower members receive full All-Access — every podcast, every event, every year, backstage access included.'},
+  {cat:'content', q:'What is the Annual Flagship Event?', a:'Once per year, SPS hosts an invite-only event for members — part summit, part demo day, part network. Superpower members attend automatically. Details on format and location will be announced to members first.'},
+  {cat:'billing', q:'When does billing start?', a:'Billing starts the day your application is approved. Your $2 is applied as a credit to your first cycle. For Spark (free), there's no billing — just your $2 reservation credit.'},
+  {cat:'billing', q:'What is the pause policy?', a:'You may pause your membership for up to 60 days per calendar year. Your A.I.R. enters standby mode, your rate stays locked, and your spot is held. Pause is available once per 12-month period. To pause, contact member support or use the Pause option in your dashboard.'},
+];
+
+function renderFaqs(filter='all') {
+  const list = document.getElementById('faqList');
+  list.innerHTML = '';
+  faqs.filter(f=>filter==='all'||f.cat===filter).forEach((f,i)=>{
+    const item = document.createElement('div');
+    item.className = 'faq-item';
+    item.innerHTML = `<div class="faq-q" onclick="toggleFaq(this)"><span>${f.q}</span><span class="faq-chevron">▼</span></div><div class="faq-a">${f.a}</div>`;
+    list.appendChild(item);
+  });
+}
+
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+}
+
+function filterFaq(cat, el) {
+  document.querySelectorAll('.faq-cat').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  renderFaqs(cat);
+}
+
+function askFaq() {
+  const input = document.getElementById('faqAskInput');
+  const answer = document.getElementById('faqAnswer');
+  const q = input.value.trim();
+  if(!q) return;
+  answer.className = 'faq-ask-answer visible';
+  answer.textContent = 'Good question. Our team will review this and post an official answer. In the meantime, apply for your tier and ask your A.I.R. when you're onboarded — it knows everything about SPS.';
+  input.value = '';
+}
+
+document.addEventListener('DOMContentLoaded', ()=>renderFaqs());
 
 </script>
 
