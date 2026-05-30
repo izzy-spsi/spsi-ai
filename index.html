@@ -470,6 +470,26 @@ footer{
 .spots-left{color:#00FF88;}
 
 
+
+/* WAITLIST MODAL */
+.waitlist-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.92);z-index:300;align-items:center;justify-content:center;padding:20px;}
+.waitlist-overlay.open{display:flex;}
+.waitlist-modal{background:#0D0D18;border:1px solid rgba(255,94,26,0.3);border-radius:16px;width:100%;max-width:480px;padding:40px;text-align:center;box-shadow:0 0 80px rgba(255,94,26,0.1);}
+.wm-tag{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#FF5E1A;margin-bottom:16px;}
+.wm-title{font-family:'Orbitron',sans-serif;font-weight:900;font-size:24px;margin-bottom:8px;}
+.wm-tier{color:#FF5E1A;}
+.wm-sub{font-size:13px;color:#6B6B8A;line-height:1.6;margin-bottom:28px;}
+.wm-form{display:flex;flex-direction:column;gap:12px;}
+.wm-input{background:#13131F;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:14px 16px;font-size:14px;color:#F0EDF8;font-family:'Space Grotesk',sans-serif;outline:none;text-align:left;}
+.wm-input:focus{border-color:rgba(255,94,26,0.4);}
+.wm-btn{background:linear-gradient(135deg,#FF5E1A,#FF8A50);border:none;border-radius:8px;padding:14px;font-family:'Orbitron',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;color:#fff;cursor:pointer;}
+.wm-close{background:none;border:none;color:#6B6B8A;font-size:13px;cursor:pointer;margin-top:12px;font-family:'Space Grotesk',sans-serif;}
+.wm-success{display:none;}
+.wm-success.visible{display:block;}
+.wm-success-icon{font-size:48px;margin-bottom:16px;}
+.wm-success-msg{font-family:'Orbitron',sans-serif;font-weight:700;font-size:18px;color:#00FF88;margin-bottom:8px;}
+.wm-success-sub{font-size:13px;color:#6B6B8A;}
+
 /* QUIZ / TIER RECOMMENDER */
 .quiz-container{max-width:640px;margin:0 auto;}
 .quiz-progress{height:3px;background:rgba(255,255,255,0.06);border-radius:2px;margin-bottom:40px;}
@@ -903,7 +923,7 @@ footer{
           <div class="tier-feature"><span class="tf-check">✓</span>AI Education modules</div>
           <div class="tier-feature"><span class="tf-check">✓</span>SPS Community access</div>
         </div>
-        <a href="sps-apply.html?tier=spark" class="tier-cta outline">Apply for Spark →</a>
+        <a href="#" onclick="openWaitlist('spark');return false;" class="tier-cta outline" style="opacity:0.6;cursor:pointer;border-style:dashed;">🔒 Coming Soon — Join Waitlist</a>
         <div class="tier-spots" id="spots-spark">⚡ 500 founding spots · <span class="spots-left">482 remaining</span></div><a href="#" onclick="openDemo();showDemo('spark',document.querySelector('.demo-tab'));return false;" class="tier-cta outline" style="margin-top:8px;font-size:11px;color:var(--muted);border-color:rgba(255,255,255,0.08);">▶ See Spark Demo</a>
       </div>
 
@@ -921,7 +941,7 @@ footer{
           <div class="tier-feature"><span class="tf-check">✓</span>Live Business Model</div>
           <div class="tier-feature"><span class="tf-check">✓</span>SPS Dashboard</div>
         </div>
-        <a href="sps-apply.html?tier=builder" class="tier-cta outline">Apply for Builder →</a>
+        <a href="#" onclick="openWaitlist('builder');return false;" class="tier-cta outline" style="opacity:0.6;cursor:pointer;border-style:dashed;">🔒 Coming Soon — Join Waitlist</a>
         <div class="tier-spots" id="spots-builder">⚡ 200 founding spots · <span class="spots-left">187 remaining</span></div><a href="#" onclick="openDemo();showDemo('builder',document.querySelectorAll('.demo-tab')[1]);return false;" class="tier-cta outline" style="margin-top:8px;font-size:11px;color:var(--muted);border-color:rgba(255,255,255,0.08);">▶ See Builder Demo</a>
       </div>
 
@@ -941,7 +961,7 @@ footer{
           <div class="tier-feature"><span class="tf-check orange">✓</span>Manifest (Living PRD)</div>
           <div class="tier-feature"><span class="tf-check orange">✓</span>Command Center</div>
         </div>
-        <a href="sps-apply.html?tier=venture" class="tier-cta filled">Apply for Venture →</a>
+        <a href="#" onclick="openWaitlist('venture');return false;" class="tier-cta filled" style="opacity:0.7;cursor:pointer;">🔒 Coming Soon — Join Waitlist</a>
         <div class="tier-spots" id="spots-venture">⚡ 100 founding spots · <span class="spots-left">91 remaining</span></div><a href="#" onclick="openDemo();showDemo('venture',document.querySelectorAll('.demo-tab')[2]);return false;" class="tier-cta outline" style="margin-top:8px;font-size:11px;color:var(--muted);border-color:rgba(255,255,255,0.08);">▶ See Venture Demo</a>
       </div>
 
@@ -1035,7 +1055,7 @@ footer{
         <div class="quiz-result-reason" id="resultReason"></div>
         <div class="quiz-result-card" id="resultCard"></div>
         <div class="quiz-result-actions">
-          <a href="#" id="resultApplyBtn" class="btn-primary" style="padding:14px 32px;">Reserve My Spot — $2 →</a>
+          <a href="#" id="resultApplyBtn" class="btn-primary" style="padding:14px 32px;">🔒 Join the Waitlist →</a>
           <a href="#" onclick="resetQuiz();return false;" style="font-size:12px;color:var(--muted);text-decoration:none;margin-top:8px;display:block;">← Retake quiz</a>
         </div>
       </div>
@@ -1224,6 +1244,32 @@ document.querySelectorAll('.reveal').forEach((el,i)=>{
   observer.observe(el);
 });
 
+
+// ===== WAITLIST MODAL =====
+let waitlistTier = null;
+const tierLabels = {spark:'Spark',builder:'Builder',venture:'Venture',superpower:'Superpower'};
+function openWaitlist(tier){
+  waitlistTier = tier;
+  document.getElementById('wmTierName').textContent = tierLabels[tier]||'Waitlist';
+  document.getElementById('wm-form-wrap').style.display='block';
+  document.getElementById('wm-success-wrap').classList.remove('visible');
+  document.getElementById('waitlistModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeWaitlist(){
+  document.getElementById('waitlistModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function submitWaitlist(){
+  const name=document.getElementById('wmName').value.trim();
+  const email=document.getElementById('wmEmail').value.trim();
+  if(!email){document.getElementById('wmEmail').focus();return;}
+  document.getElementById('wm-form-wrap').style.display='none';
+  document.getElementById('wmSuccessTier').textContent = tierLabels[waitlistTier]||'your tier';
+  document.getElementById('wm-success-wrap').classList.add('visible');
+}
+document.getElementById('waitlistModal').addEventListener('click',function(e){if(e.target===this)closeWaitlist();});
+
 // ===== DEMO MODAL =====
 function openDemo(){document.getElementById('demoModal').classList.add('open');document.body.style.overflow='hidden';}
 function closeDemo(){document.getElementById('demoModal').classList.remove('open');document.body.style.overflow='';}
@@ -1340,7 +1386,7 @@ function showResult() {
   document.getElementById('resultTierName').style.color = t.color;
   document.getElementById('resultReason').textContent = t.reason;
   document.getElementById('resultCard').innerHTML = t.card;
-  document.getElementById('resultApplyBtn').href = 'sps-apply.html?tier='+t.apply;
+  document.getElementById('resultApplyBtn').href = '#'; document.getElementById('resultApplyBtn').onclick = function(){openWaitlist(t.apply);return false;};
   document.getElementById('qresult').classList.add('active');
   document.getElementById('quizBar').style.width = '100%';
 }
@@ -1409,6 +1455,30 @@ function askFaq() {
 document.addEventListener('DOMContentLoaded', ()=>renderFaqs());
 
 </script>
+
+
+<!-- WAITLIST MODAL -->
+<div class="waitlist-overlay" id="waitlistModal">
+  <div class="waitlist-modal">
+    <div id="wm-form-wrap">
+      <div class="wm-tag">⚡ Founding Membership</div>
+      <div class="wm-title">Join the <span class="wm-tier" id="wmTierName">Waitlist</span></div>
+      <p class="wm-sub">Membership applications open soon. Drop your email and we'll notify you the moment your tier is live — and hold your Foundry rate.</p>
+      <div class="wm-form">
+        <input type="text" class="wm-input" id="wmName" placeholder="Your name">
+        <input type="email" class="wm-input" id="wmEmail" placeholder="Your email address">
+        <button class="wm-btn" onclick="submitWaitlist()">Notify Me When Live →</button>
+      </div>
+      <button class="wm-close" onclick="closeWaitlist()">No thanks</button>
+    </div>
+    <div class="wm-success" id="wm-success-wrap">
+      <div class="wm-success-icon">✅</div>
+      <div class="wm-success-msg">You're on the list.</div>
+      <div class="wm-success-sub">We'll reach out the moment <span id="wmSuccessTier"></span> opens.<br>Your Foundry rate will be waiting.</div>
+      <button class="wm-close" onclick="closeWaitlist()" style="margin-top:20px;">Close</button>
+    </div>
+  </div>
+</div>
 
 <!-- DEMO MODAL -->
 <div class="demo-overlay" id="demoModal">
