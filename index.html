@@ -448,7 +448,7 @@ footer{
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
-  nav{padding:0 24px;}
+  nav{padding:0 20px;}
   .section-inner{padding:0 24px;}
   .tiers-grid{grid-template-columns:1fr 1fr;}
   .tier-card.featured{transform:none;}
@@ -456,6 +456,44 @@ footer{
   .journey-grid,.journey-grid-2{grid-template-columns:repeat(3,1fr);}
   .footer-top{flex-direction:column;gap:40px;}
   .footer-links{flex-wrap:wrap;gap:32px;}
+
+  /* Mobile nav: hide desktop links/CTA, show hamburger */
+  .nav-links,.nav-cta{display:none;}
+  .nav-toggle{display:flex;}
+  .nav-mobile-menu{display:none;}
+  .nav-mobile-menu.open{display:flex;}
+}
+@media(min-width:901px){
+  .nav-toggle{display:none;}
+  .nav-mobile-menu{display:none;}
+}
+
+/* ===== MOBILE NAV MENU ===== */
+.nav-toggle{
+  align-items:center;justify-content:center;
+  width:44px;height:44px;margin-left:auto;
+  background:transparent;border:1px solid rgba(255,255,255,0.15);border-radius:8px;
+  cursor:pointer;flex-direction:column;gap:5px;
+}
+.nav-toggle span{display:block;width:20px;height:2px;background:var(--white);border-radius:2px;transition:transform 0.2s ease,opacity 0.2s ease;}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-mobile-menu{
+  position:fixed;top:0;left:0;right:0;bottom:0;z-index:99;
+  flex-direction:column;
+  background:rgba(5,5,10,0.98);backdrop-filter:blur(20px);
+  padding:130px 32px 40px;gap:4px;overflow-y:auto;
+}
+.nav-mobile-menu a{
+  font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;
+  color:var(--white);text-decoration:none;padding:18px 4px;
+  border-bottom:1px solid rgba(255,255,255,0.08);letter-spacing:0.2px;
+}
+.nav-mobile-menu a.nav-mobile-investors{color:var(--orange);}
+.nav-mobile-menu a.nav-mobile-cta{
+  margin-top:20px;text-align:center;border:1px solid var(--orange);border-bottom:1px solid var(--orange);
+  border-radius:8px;background:var(--orange);color:#fff;
 }
 @media(max-width:600px){
   .tiers-grid{grid-template-columns:1fr;}
@@ -636,7 +674,19 @@ footer{
     <a href="https://sps-investor-portal-production.up.railway.app" target="_blank" style="color:var(--orange);">Investors</a>
   </div>
   <a href="sps-login.html" class="nav-cta" style="background:transparent;border:1px solid rgba(255,94,26,0.5);color:#FF5E1A;box-shadow:none;">Login / Access →</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobileMenu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="nav-mobile-menu" id="navMobileMenu">
+  <a href="#superpowers">Superpowers</a>
+  <a href="#air">A.I.R.™</a>
+  <a href="#tiers">Pricing</a>
+  <a href="#about">About</a>
+  <a href="https://sps-investor-portal-production.up.railway.app" target="_blank" class="nav-mobile-investors">Investors</a>
+  <a href="sps-login.html" class="nav-mobile-cta">Login / Access →</a>
+</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -1125,6 +1175,30 @@ footer{
 </footer>
 
 <script>
+// ===== MOBILE NAV TOGGLE =====
+(function(){
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('navMobileMenu');
+  if(!toggle || !menu) return;
+  function closeMenu(){
+    toggle.classList.remove('open');
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+  }
+  function openMenu(){
+    toggle.classList.add('open');
+    menu.classList.add('open');
+    toggle.setAttribute('aria-expanded','true');
+    document.body.style.overflow='hidden';
+  }
+  toggle.addEventListener('click',()=>{
+    if(menu.classList.contains('open')) closeMenu(); else openMenu();
+  });
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+  window.addEventListener('resize',()=>{ if(window.innerWidth>900) closeMenu(); });
+})();
+
 // ===== CYCLING HERO POWER =====
 const powers = [
   {icon:'⚡',text:'Super Speed',color:'#FF5E1A'},
